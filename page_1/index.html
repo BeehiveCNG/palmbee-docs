@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#palmbee_07-03-2026" class="md-skip">
+        <a href="#palmbee" class="md-skip">
           Skip to content
         </a>
       
@@ -227,8 +227,24 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Readme
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -246,6 +262,89 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#palmbee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PalmBee
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -268,8 +367,80 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#palmbee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PalmBee
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contributing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -286,8 +457,127 @@
 
 
 
-<h1 id="palmbee_07-03-2026">PalmBee_07-03-2026</h1>
-<p>Sub repository for PalmBee based on field testing on 07/03/2026</p>
+  <h1>Readme</h1>
+
+<h2 id="palmbee">PalmBee</h2>
+<p>PalmBee is a package designed to automate the pollination process in palm tree plantations using drones. This package leverages the capabilities of PX4 and ROS2 Humble to provide an efficient and reliable solution for pollination.</p>
+<h2 id="compatibility">Compatibility</h2>
+<ul>
+<li><strong>Ubuntu 22.04</strong></li>
+<li><strong>ROS2 Humble</strong></li>
+<li><strong>ZED SDK 4.2 ( with ZED Wrapper 4.2.5 )</strong></li>
+<li><strong>Ardupilot</strong></li>
+<li><strong>Jetpack 6.2.x</strong></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>To install the PalmBee package, follow these steps:</p>
+<ol>
+<li>
+<p>Install and setup ROS2 Humble First:
+    <code>bash
+    using this documentation
+    https://docs.ros.org/en/humble/Installation.html</code></p>
+</li>
+<li>
+<p>Install and setup this specific Zed SDK:
+    <code>bash
+    [git clone https://github.com/ep51lon/PalmBee.git](https://www.stereolabs.com/en-id/developers/release/4.2
+    note : this repository is based on wrapper 4.2.5 and tested on ZED SDK for JetPack 6.1 and 6.2 (L4T 36.4))</code></p>
+</li>
+<li>
+<p>Create the workspace directory:
+    <code>bash
+    mkdir -p palmbee_ws/src
+    cd palmbee_ws/src</code></p>
+</li>
+<li>
+<p>Clone the repository:
+    <code>bash
+    git clone https://github.com/ep51lon/PalmBee.git</code></p>
+</li>
+<li>
+<p>Install dependencies:
+    <code>bash
+    git clone https://github.com/ep51lon/PalmBee.git</code>
+    or build specific package (for example, pb_perception) using
+    <code>bash
+    colcon build --packages-select pb_perception</code></p>
+</li>
+<li>
+<p>Build the package:
+    <code>bash
+    colcon build
+    or build specific package (for example, pb_perception) using
+    colcon build --packages-select pb_perception</code></p>
+</li>
+<li>
+<p>Source the setup file:
+    <code>bash
+    source install/setup.bash</code>
+    or set it up on ~/.bashrc using the source command
+    <code>bash
+    note : for yolo_ws / u can also build it on different workspace and build it too ( but u must install / set yolo first and any package that yolo needed )</code></p>
+</li>
+</ol>
+<h2 id="usage">Usage</h2>
+<p><strong>TODO</strong></p>
+<p>To use the PalmBee package, follow these steps:</p>
+<ol>
+<li>
+<p>Launch camera (for example using Realsense):
+    <code>bash
+    ros2 launch pb_perception rs_slam_launch.py</code></p>
+</li>
+<li>
+<p>Launch AprilTag Detector:
+    <code>bash
+    ros2 launch pb_perception rs_apriltag_launch.py</code></p>
+</li>
+<li>
+<p>Get annotated image and coordinates:
+    <code>bash
+    ros2 run pb_perception get_markers.py</code></p>
+</li>
+<li>
+<p>Open your favorite image viewer to display the anotated image:
+    <code>bash
+    ros2 run rqt_image_view rqt_image_view</code>
+    and select the image topic to display.</p>
+</li>
+</ol>
+<p><strong>TO START AUTOMATION</strong></p>
+<ol>
+<li>run or start stack script</li>
+</ol>
+<p>Stack script are a .sh type file that are there so it's make the starting or running the ROS2 package much more easier since for this repository, it needed to run more or less 6 package ( included rosbag for logging purpose )
+Stack script for this purpose located in ~/script/ with file name start_pb_stack.sh. to start it, because it's a normal script, no need to build it, just chmod +x "path of the file" to make it executable.
+example :</p>
+<pre><code class="language-bash">chmod +x ~/script/start_pb_stack.sh
+~/script/start_pb_stack.sh
+</code></pre>
+<p>note :
+wait until all the terminal ros2 package windows to finish starting and the stack script done running, don't forget to check mission planner for bad vision warning !</p>
+<ol>
+<li>starting yolo package</li>
+</ol>
+<p>the yolo ros2 executable for object detection are located in ~/yolo_ws/src/yolov11_ros/yolov11_ros/yolo_node.py , after colcon build it, to start the executable here the command for it :</p>
+<pre><code class="language-bash">ros2 launch yolob11_ros yolo_v11_ros_launch.py
+</code></pre>
+<p>wait until there's nomore new line being shown in the terminal or the coordinate of the detected object to be shown in terminal ( if the object are possible to be detected in ground ). if yolo still can't detected the desirable object in ground, this yolo package still can detect and send the desirable object coordinat when the vehicle or drone move / fly.
+note : becareful when it's only posible to detect the object after the vehicle starting / moving, since yolo keep sending coordinate of it's desirable detected object</p>
+<ol>
+<li>starting control manager package</li>
+</ol>
+<p>Control manager package are there to command the vehicle or drone to move depend's on what being commanded ( for this case, it's a circular motion after take off and object detected with it's coordinate ), this package is usually located in the same workspace as the main palmbee_ws ( in ~/palmbee_ws/src/PalmBee/pb_control/src/cm_setpoint.cpp ). to start this package, use this command :</p>
+<pre><code class="language-bash">ros2 launch pb_control  cm_setpoint.launch.py
+</code></pre>
+<p>note : there's one more executable from pb_control that can be used if needed 2 different kind of executable.</p>
+<p>after starting , wait until in the terminal where this package startet to show "waiting for arm". to armed the vehicle, use mission planner or GCS to do it. after the drone being armed by GCS, it will start flying automaticly according to it's mission</p>
+<p>For more detailed instructions and documentation, please refer to the <a href="https://github.com/yourusername/palmbee/wiki">wiki</a>.</p>
+<h2 id="contributing">Contributing</h2>
+<p>We welcome contributions to the PalmBee package. Please fork the repository and submit pull requests for any enhancements or bug fixes.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
 
 
 
