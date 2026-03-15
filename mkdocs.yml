@@ -3,5 +3,7 @@ site_name: PalmBee Documentation
 theme:
   name: material
 
+
 nav:
   - Home: index.md
+  - Project README: readme.md
