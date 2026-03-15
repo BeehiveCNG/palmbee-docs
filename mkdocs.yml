@@ -6,4 +6,4 @@ theme:
 
 nav:
   - Home: index.md
-  - Project README: README.md
+  - Readme: page_1.md
