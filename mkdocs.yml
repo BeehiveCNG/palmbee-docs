@@ -3,7 +3,9 @@ site_name: PalmBee Documentation
 theme:
   name: material
 
-
 nav:
   - Home: index.md
   - Readme: page_1.md
+
+extra_css:
+  - stylesheets/extra.css
