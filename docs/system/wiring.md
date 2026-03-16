@@ -4,7 +4,7 @@
 
 ### Drone Wiring Diagram
 
-![Drone Wiring](images/drone_wiring.png)
+![Drone Wiring](../images/drone_wiring.png)
 
 ---
 
