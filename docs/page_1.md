@@ -11,13 +11,7 @@ solution for pollination.
 
 ### Drone Wiring Diagram
 
-```{=html}
-<p align="center">
-```
-`<img src="images/drone_wiring.png" width="700">`{=html}
-```{=html}
-</p>
-```
+![Drone Wiring](images/drone_wiring.png)
 
 ------------------------------------------------------------------------
 
