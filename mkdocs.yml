@@ -2,10 +2,36 @@ site_name: PalmBee Documentation
 
 theme:
   name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
 
 nav:
+  nav:
   - Home: index.md
-  - Readme: page_1.md
+
+  - Overview:
+      - What is PalmBee: overview.md
+
+  - System:
+      - Architecture: system/architecture.md
+      - Wiring Diagram: system/wiring.md
+
+  - Setup:
+      - Installation: setup/installation.md
+      - Hardware Setup: setup/hardware.md
+
+  - Usage:
+      - Quick Start: usage/quickstart.md
+      - Operation: usage/operation.md
+
+  - Development:
+      - ROS2 Integration: development/ros2.md
+      - PX4 Setup: development/px4.md
+      - MAVLink: development/mavlink.md
+
 
 extra_css:
   - stylesheets/extra.css
