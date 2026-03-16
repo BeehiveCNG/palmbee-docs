@@ -44,6 +44,8 @@
       
     
     
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -288,6 +290,89 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#drone-system-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drone System Wiring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drone System Wiring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drone-wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drone Wiring Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-companion-computer-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Companion Computer Communication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-telemetry-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Telemetry &amp; Sensor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rc-receiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RC Receiver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-motor-esc-standard-x-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Motor &amp; ESC (Standard X Configuration)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-system-architecture-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. System Architecture Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#compatibility" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -386,6 +471,89 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#drone-system-wiring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drone System Wiring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Drone System Wiring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#drone-wiring-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drone Wiring Diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-companion-computer-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Companion Computer Communication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-telemetry-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Telemetry &amp; Sensor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-rc-receiver" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. RC Receiver
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-motor-esc-standard-x-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Motor &amp; ESC (Standard X Configuration)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-system-architecture-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. System Architecture Summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#compatibility" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -461,6 +629,169 @@
 
 <h2 id="palmbee">PalmBee</h2>
 <p>PalmBee is a package designed to automate the pollination process in palm tree plantations using drones. This package leverages the capabilities of PX4 and ROS2 Humble to provide an efficient and reliable solution for pollination.</p>
+<hr />
+<h2 id="drone-system-wiring">Drone System Wiring</h2>
+<h3 id="drone-wiring-diagram">Drone Wiring Diagram</h3>
+<p><img alt="Drone Wiring" src="../images/drone_wiring.png" /></p>
+<hr />
+<h3 id="1-companion-computer-communication">1. Companion Computer Communication</h3>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Device Port</th>
+<th>Connected To</th>
+<th>Pixhawk / Jetson Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jetson Orin Nano</td>
+<td>USB</td>
+<td>Pixhawk 6C</td>
+<td>USB Type-C</td>
+<td>MAVLink communication (companion computer)</td>
+</tr>
+<tr>
+<td>ZED2i Camera</td>
+<td>USB</td>
+<td>Jetson Orin Nano</td>
+<td>USB 3.0 Jetson</td>
+<td>Stereo camera for vision processing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="2-telemetry-sensor">2. Telemetry &amp; Sensor</h3>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Device Port</th>
+<th>Connected To</th>
+<th>Pixhawk Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CUAV PW-Link</td>
+<td>UART</td>
+<td>Pixhawk 6C</td>
+<td>TELEM1</td>
+<td>Telemetry communication to ground station</td>
+</tr>
+<tr>
+<td>Optical Flow MTF-01P</td>
+<td>UART</td>
+<td>Pixhawk 6C</td>
+<td>TELEM2</td>
+<td>Optical flow sensor for movement estimation</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="3-rc-receiver">3. RC Receiver</h3>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Receiver Port</th>
+<th>Connected To</th>
+<th>Pixhawk Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RC Receiver</td>
+<td>SBUS Out</td>
+<td>Pixhawk 6C</td>
+<td>SBUS</td>
+<td>Pilot control input</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-motor-esc-standard-x-configuration">4. Motor &amp; ESC (Standard X Configuration)</h3>
+<table>
+<thead>
+<tr>
+<th>Motor</th>
+<th>ESC Signal</th>
+<th>Pixhawk Port</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Motor 1</td>
+<td>PWM Signal</td>
+<td>MAIN OUT 1</td>
+<td>Front Right</td>
+</tr>
+<tr>
+<td>Motor 2</td>
+<td>PWM Signal</td>
+<td>MAIN OUT 2</td>
+<td>Rear Left</td>
+</tr>
+<tr>
+<td>Motor 3</td>
+<td>PWM Signal</td>
+<td>MAIN OUT 3</td>
+<td>Front Left</td>
+</tr>
+<tr>
+<td>Motor 4</td>
+<td>PWM Signal</td>
+<td>MAIN OUT 4</td>
+<td>Rear Right</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="5-system-architecture-summary">5. System Architecture Summary</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pixhawk 6C</td>
+<td>Main flight controller</td>
+</tr>
+<tr>
+<td>Jetson Orin Nano</td>
+<td>Companion computer for AI / vision</td>
+</tr>
+<tr>
+<td>ZED2i</td>
+<td>Stereo camera for visual perception</td>
+</tr>
+<tr>
+<td>MTF-01P</td>
+<td>Optical flow sensor for velocity estimation</td>
+</tr>
+<tr>
+<td>PW-Link</td>
+<td>Telemetry to Ground Control Station</td>
+</tr>
+<tr>
+<td>Receiver SBUS</td>
+<td>Manual control from pilot</td>
+</tr>
+<tr>
+<td>ESC + Brushless</td>
+<td>Drone motor actuator</td>
+</tr>
+</tbody>
+</table>
+<hr />
 <h2 id="compatibility">Compatibility</h2>
 <ul>
 <li><strong>Ubuntu 22.04</strong></li>
@@ -472,79 +803,75 @@
 <h2 id="installation">Installation</h2>
 <p>To install the PalmBee package, follow these steps:</p>
 <ol>
-<li>
-<p>Install and setup ROS2 Humble First:
-    <code>bash
-    using this documentation
-    https://docs.ros.org/en/humble/Installation.html</code></p>
-</li>
-<li>
-<p>Install and setup this specific Zed SDK:
-    <code>bash
-    [git clone https://github.com/ep51lon/PalmBee.git](https://www.stereolabs.com/en-id/developers/release/4.2
-    note : this repository is based on wrapper 4.2.5 and tested on ZED SDK for JetPack 6.1 and 6.2 (L4T 36.4))</code></p>
-</li>
-<li>
-<p>Create the workspace directory:
-    <code>bash
-    mkdir -p palmbee_ws/src
-    cd palmbee_ws/src</code></p>
-</li>
-<li>
-<p>Clone the repository:
-    <code>bash
-    git clone https://github.com/ep51lon/PalmBee.git</code></p>
-</li>
-<li>
-<p>Install dependencies:
-    <code>bash
-    git clone https://github.com/ep51lon/PalmBee.git</code>
-    or build specific package (for example, pb_perception) using
-    <code>bash
-    colcon build --packages-select pb_perception</code></p>
-</li>
-<li>
-<p>Build the package:
-    <code>bash
-    colcon build
-    or build specific package (for example, pb_perception) using
-    colcon build --packages-select pb_perception</code></p>
-</li>
-<li>
-<p>Source the setup file:
-    <code>bash
-    source install/setup.bash</code>
-    or set it up on ~/.bashrc using the source command
-    <code>bash
-    note : for yolo_ws / u can also build it on different workspace and build it too ( but u must install / set yolo first and any package that yolo needed )</code></p>
-</li>
+<li>Install and setup ROS2 Humble First:</li>
 </ol>
+<pre><code class="language-bash">using this documentation
+https://docs.ros.org/en/humble/Installation.html
+</code></pre>
+<ol>
+<li>Install and setup this specific Zed SDK:</li>
+</ol>
+<pre><code class="language-bash">[git clone https://github.com/ep51lon/PalmBee.git](https://www.stereolabs.com/en-id/developers/release/4.2
+note : this repository is based on wrapper 4.2.5 and tested on ZED SDK for JetPack 6.1 and 6.2 (L4T 36.4))
+</code></pre>
+<ol>
+<li>Create the workspace directory:</li>
+</ol>
+<pre><code class="language-bash">mkdir -p palmbee_ws/src
+cd palmbee_ws/src
+</code></pre>
+<ol>
+<li>Clone the repository:</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/ep51lon/PalmBee.git
+</code></pre>
+<ol>
+<li>Install dependencies:</li>
+</ol>
+<pre><code class="language-bash">git clone https://github.com/ep51lon/PalmBee.git
+</code></pre>
+<p>or build specific package (for example, pb_perception) using</p>
+<pre><code class="language-bash">colcon build --packages-select pb_perception
+</code></pre>
+<ol>
+<li>Build the package:</li>
+</ol>
+<pre><code class="language-bash">colcon build
+or build specific package (for example, pb_perception) using
+colcon build --packages-select pb_perception
+</code></pre>
+<ol>
+<li>Source the setup file:</li>
+</ol>
+<pre><code class="language-bash">source install/setup.bash
+</code></pre>
+<p>or set it up on ~/.bashrc using the source command</p>
+<pre><code class="language-bash">note : for yolo_ws / u can also build it on different workspace and build it too ( but u must install / set yolo first and any package that yolo needed )
+</code></pre>
 <h2 id="usage">Usage</h2>
 <p><strong>TODO</strong></p>
 <p>To use the PalmBee package, follow these steps:</p>
 <ol>
-<li>
-<p>Launch camera (for example using Realsense):
-    <code>bash
-    ros2 launch pb_perception rs_slam_launch.py</code></p>
-</li>
-<li>
-<p>Launch AprilTag Detector:
-    <code>bash
-    ros2 launch pb_perception rs_apriltag_launch.py</code></p>
-</li>
-<li>
-<p>Get annotated image and coordinates:
-    <code>bash
-    ros2 run pb_perception get_markers.py</code></p>
-</li>
-<li>
-<p>Open your favorite image viewer to display the anotated image:
-    <code>bash
-    ros2 run rqt_image_view rqt_image_view</code>
-    and select the image topic to display.</p>
-</li>
+<li>Launch camera (for example using Realsense):</li>
 </ol>
+<pre><code class="language-bash">ros2 launch pb_perception rs_slam_launch.py
+</code></pre>
+<ol>
+<li>Launch AprilTag Detector:</li>
+</ol>
+<pre><code class="language-bash">ros2 launch pb_perception rs_apriltag_launch.py
+</code></pre>
+<ol>
+<li>Get annotated image and coordinates:</li>
+</ol>
+<pre><code class="language-bash">ros2 run pb_perception get_markers.py
+</code></pre>
+<ol>
+<li>Open your favorite image viewer to display the anotated image:</li>
+</ol>
+<pre><code class="language-bash">ros2 run rqt_image_view rqt_image_view
+</code></pre>
+<p>and select the image topic to display.</p>
 <p><strong>TO START AUTOMATION</strong></p>
 <ol>
 <li>run or start stack script</li>
