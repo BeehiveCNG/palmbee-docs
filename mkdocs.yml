@@ -9,7 +9,6 @@ theme:
     - search.highlight
 
 nav:
-  nav:
   - Home: index.md
 
   - Overview:
