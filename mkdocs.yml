@@ -2,6 +2,7 @@ site_name: PalmBee Documentation
 
 theme:
   name: material
+  logo: ../images/beehive_drone.png
   features:
     - navigation.sections
     - navigation.expand
