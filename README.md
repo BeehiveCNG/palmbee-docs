@@ -21,6 +21,9 @@ It leverages:
 - Jetson Orin Nano
 - Zed2i Camera
 
+## Main Repository
+This repository is mainly for palmbee repository documentation, for palmbee program / project please go to [PalmBee](https://github.com/BeehiveCNG/PalmBee)
+
 ## Contributing
 
 We welcome contributions to the PalmBee package. Please fork the repository and submit pull requests for any enhancements or bug fixes.
