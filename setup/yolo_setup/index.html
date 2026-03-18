@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#yolo-installation" class="md-skip">
+        <a href="#yolo-setup-jetson" class="md-skip">
           Skip to content
         </a>
       
@@ -553,6 +553,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Yolo Setup
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -569,6 +587,191 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Requirement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-extract-yolo-installation-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Extract YOLO Installation Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-navigate-to-installation-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Navigate to Installation Folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-setup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Setup Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-environment-note-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Environment Note (Important)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-handling-managed-by-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Handling (Managed by Script)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-output-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Output / Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-warnings-safe-to-ignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Warnings (Safe to Ignore)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-yolo-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: YOLO Test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls-after-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls After Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-runtime-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Common Runtime Issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -864,6 +1067,180 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Requirement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Steps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-extract-yolo-installation-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Extract YOLO Installation Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-navigate-to-installation-folder" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Navigate to Installation Folder
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-setup-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Run Setup Script
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python-environment-note-important" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Environment Note (Important)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dependency-handling-managed-by-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dependency Handling (Managed by Script)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-output-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Output / Verification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-warnings-safe-to-ignore" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Known Warnings (Safe to Ignore)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-yolo-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional: YOLO Test
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-pitfalls-after-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Pitfalls After Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-runtime-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Common Runtime Issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -880,121 +1257,164 @@
 
 
 
-<h1 id="yolo-installation">Yolo installation</h1>
-<p>Here are the script used to for setting up yolo</p>
-<p>before running it , make sure it's located in the same path as yolo_ws / inside of it
-and if it's being run as .sh script, make sure to chmod +x it's first so it became a executable</p>
-<pre><code class="language-bash">#!/bin/bash
-
-echo &quot;===============================&quot;
-echo &quot; YOLO + JETSON SETUP START&quot;
-echo &quot;===============================&quot;
-
-==============================
-
-0. CHECK PYTHON
-
-==============================
-
-echo &quot;[1/8] Checking Python version...&quot;
-python3 --version
-
-==============================
-
-1. UPGRADE PIP
-
-==============================
-
-echo &quot;[2/8] Upgrading pip...&quot;
-python3 -m pip install --upgrade pip
-
-==============================
-
-2. REMOVE CONFLICT PACKAGES
-
-==============================
-
-echo &quot;[3/8] Removing conflicting packages...&quot;
-python3 -m pip uninstall -y opencv-python opencv-python-headless torch torchvision numpy
-
-==============================
-
-3. INSTALL NUMPY (ZED SAFE)
-
-==============================
-
-echo &quot;[4/8] Installing compatible numpy...&quot;
-python3 -m pip install numpy==1.26.4
-
-==============================
-
-4. INSTALL TORCH (JETSON GPU)
-
-==============================
-
-echo &quot;[5/8] Installing Jetson PyTorch (GPU)...&quot;
-python3 -m pip install
---index-url https://pypi.jetson-ai-lab.io/jp6/cu126
-torch==2.8.0 torchvision==0.23.0
-
-==============================
-
-5. INSTALL ULTRALYTICS (NO DEPS)
-
-==============================
-
-echo &quot;[6/8] Installing Ultralytics...&quot;
-python3 -m pip install ultralytics --no-deps
-
-==============================
-
-6. INSTALL OPTIONAL DEPENDENCY
-
-==============================
-
-echo &quot;[7/8] Installing YOLO tracking dependency...&quot;
-python3 -m pip install lap
-
-==============================
-
-7. VERIFY INSTALLATION
-
-==============================
-
-echo &quot;[8/8] Verifying installation...&quot;
-
-python3 &lt;&lt;EOF
-import torch
-from ultralytics import YOLO
-import cv2
-import numpy as np
-
-print(&quot;===== CHECK =====&quot;)
-print(&quot;Torch:&quot;, torch.version)
-print(&quot;CUDA Available:&quot;, torch.cuda.is_available())
-
-if torch.cuda.is_available():
-print(&quot;GPU:&quot;, torch.cuda.get_device_name(0))
-
-print(&quot;Numpy:&quot;, np.version)
-print(&quot;OpenCV:&quot;, cv2.version)
-
-test YOLO load
-
-model = YOLO(&quot;yolo11n.pt&quot;)
-print(&quot;YOLO loaded successfully&quot;)
-
-EOF
-
-echo &quot;===============================&quot;
-echo &quot; INSTALLATION DONE&quot;
-echo &quot;===============================&quot;
-
-echo &quot;NOTE:&quot;
-echo &quot;- SciPy warning boleh diabaikan&quot;
-echo &quot;- Jangan install opencv-python lagi&quot;
-echo &quot;- Gunakan numpy 1.26.4 saja&quot;
+<h1 id="yolo-setup-jetson">YOLO Setup (Jetson)</h1>
+<p>This guide explains how to install YOLO on NVIDIA Jetson using the provided installation package.<br />
+The installation process is <strong>fully script-driven</strong>, ensuring reproducibility and minimal manual configuration.</p>
+<p><strong>Estimated time:</strong> ~10–20 minutes<br />
+<strong>Disk usage:</strong> ~1–2 GB  </p>
+<hr />
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before proceeding, ensure you have completed the main installation:</p>
+<p>👉 https://github.com/BeehiveCNG/palmbee-docs/blob/main/docs/setup/installation.md</p>
+<h3 id="system-requirement">System Requirement</h3>
+<p>This setup is tested on:</p>
+<ul>
+<li><strong>JetPack 6.x (L4T r36.x)</strong></li>
+<li>CUDA 12.x</li>
+<li>Jetson Orin series</li>
+</ul>
+<blockquote>
+<p>Using JetPack 5.x or other versions may result in incompatibility with PyTorch and CUDA.</p>
+</blockquote>
+<hr />
+<h2 id="installation-steps">Installation Steps</h2>
+<h3 id="1-extract-yolo-installation-package">1. Extract YOLO Installation Package</h3>
+<p>Place the file:</p>
+<pre><code>yolo_installation.zip
 </code></pre>
+<p>Then extract it:</p>
+<pre><code class="language-bash">unzip yolo_installation.zip
+</code></pre>
+<hr />
+<h3 id="2-navigate-to-installation-folder">2. Navigate to Installation Folder</h3>
+<pre><code class="language-bash">cd &quot;Yolo Installation&quot;
+</code></pre>
+<hr />
+<h3 id="3-run-setup-script">3. Run Setup Script</h3>
+<p>Make the script executable:</p>
+<pre><code class="language-bash">chmod +x setup_yolo_jetson.sh
+</code></pre>
+<p>Run the installation:</p>
+<pre><code class="language-bash">./setup_yolo_jetson.sh
+</code></pre>
+<blockquote>
+<p>The script will automatically handle all dependencies, environment setup, and compatibility adjustments.</p>
+</blockquote>
+<hr />
+<h2 id="python-environment-note-important">Python Environment Note (Important)</h2>
+<p>The installation uses:</p>
+<pre><code class="language-bash">python3 -m pip
+</code></pre>
+<p>which installs packages into the <strong>system Python environment</strong>.</p>
+<p>Ensure that ROS 2 uses the same Python environment (typically system Python on Jetson).<br />
+Otherwise, you may encounter:</p>
+<pre><code class="language-bash">ModuleNotFoundError: ultralytics
+</code></pre>
+<p>even though the installation was successful.</p>
+<hr />
+<h2 id="dependency-handling-managed-by-script">Dependency Handling (Managed by Script)</h2>
+<p>The installation script ensures a consistent and compatible environment:</p>
+<ul>
+<li>
+<p><strong>NumPy (1.26.4)</strong><br />
+  Selected for compatibility with ZED SDK and Jetson ecosystem.</p>
+</li>
+<li>
+<p><strong>PyTorch (Jetson build)</strong><br />
+  Installed with GPU (CUDA) support enabled for optimal performance.</p>
+</li>
+<li>
+<p><strong>OpenCV (system version)</strong><br />
+  OpenCV is already provided by Jetson via system libraries (apt).<br />
+  Installing <code>opencv-python</code> via pip may override this and break compatibility.</p>
+</li>
+</ul>
+<blockquote>
+<p>These dependencies are configured automatically by the script.<br />
+Modifying them manually after installation may affect system stability or compatibility.</p>
+</blockquote>
+<hr />
+<h2 id="expected-output-verification">Expected Output / Verification</h2>
+<p>If the installation is successful, you should see output similar to:</p>
+<pre><code class="language-bash">===== SYSTEM CHECK =====
+Torch Version: 2.8.0
+CUDA Available: True
+GPU: Orin
+NumPy Version: 1.26.4
+OpenCV Version: 4.5.4
+
+YOLO model loaded successfully
+</code></pre>
+<p>Key indicators of success:</p>
+<ul>
+<li><code>CUDA Available: True</code> → GPU acceleration is active  </li>
+<li><code>GPU: Orin</code> → Jetson GPU detected correctly  </li>
+<li>YOLO model loads without error  </li>
+</ul>
+<hr />
+<h2 id="known-warnings-safe-to-ignore">Known Warnings (Safe to Ignore)</h2>
+<p>These warnings are <strong>EXPECTED and SAFE</strong>:</p>
+<ul>
+<li>pip dependency resolver warning  </li>
+<li>SciPy requires numpy &lt;1.25 warning  </li>
+<li>ultralytics missing dependency warning (opencv)  </li>
+</ul>
+<p>Example:</p>
+<pre><code class="language-bash">UserWarning: A NumPy version &gt;=1.17.3 and &lt;1.25.0 is required
+ERROR: pip's dependency resolver does not currently take into account...
+WARNING: Skipping opencv-python as it is not installed.
+</code></pre>
+<blockquote>
+<p>Do <strong>NOT</strong> attempt to fix these unless you fully understand the dependency chain.</p>
+</blockquote>
+<hr />
+<h2 id="optional-yolo-test">Optional: YOLO Test</h2>
+<p>You may optionally test YOLO inference after installation.</p>
+<blockquote>
+<p>This step is <strong>only for verification</strong>.<br />
+The model file (e.g. <code>yolo11n.pt</code>) is <strong>not required</strong> if you plan to use your own model later.</p>
+</blockquote>
+<hr />
+<h2 id="common-pitfalls-after-installation">Common Pitfalls After Installation</h2>
+<p>After a successful setup, certain changes may introduce issues:</p>
+<ul>
+<li>Upgrading NumPy manually  </li>
+<li>Installing OpenCV via pip  </li>
+<li>Reinstalling PyTorch from pip  </li>
+</ul>
+<p>These actions may override the compatible environment created by the script.</p>
+<hr />
+<h2 id="common-runtime-issues">🔧 Common Runtime Issues</h2>
+<ol>
+<li>
+<p><strong>Torch import error (libcudss.so missing)</strong><br />
+   → Caused by incorrect PyTorch build (not Jetson-compatible)</p>
+</li>
+<li>
+<p><strong>GPU not detected</strong><br />
+   → Wrong PyTorch build or CUDA mismatch</p>
+</li>
+<li>
+<p><strong>ROS node cannot find ultralytics</strong><br />
+   → Python environment mismatch between ROS and system Python</p>
+</li>
+</ol>
+<hr />
+<h2 id="summary">Summary</h2>
+<p>The installation process is designed to be:</p>
+<ul>
+<li>Fully automated (script-driven)  </li>
+<li>Reproducible across Jetson devices  </li>
+<li>Compatible with ZED SDK and GPU acceleration  </li>
+</ul>
+<p>Steps:</p>
+<ol>
+<li>Extract package  </li>
+<li>Enter directory  </li>
+<li>Run setup script  </li>
+<li>Verify output  </li>
+</ol>
+<p>After completion, YOLO is ready for use with GPU acceleration on Jetson.</p>
 
 
 
