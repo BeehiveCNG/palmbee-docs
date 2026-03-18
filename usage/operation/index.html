@@ -642,24 +642,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -676,58 +658,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-run-or-start-stack-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. run or start stack script
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-starting-yolo-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. starting yolo package
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-starting-control-manager-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. starting control manager package
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -906,47 +836,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-run-or-start-stack-script" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. run or start stack script
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-starting-yolo-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. starting yolo package
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-starting-control-manager-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. starting control manager package
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -965,28 +854,115 @@
 
 <h1 id="starting">STARTING</h1>
 <p><strong>TO START AUTOMATION / OPERATION</strong></p>
-<h4 id="1-run-or-start-stack-script">1. run or start stack script</h4>
-<p>Stack script are a .sh type file that are there so it's make the starting or running the ROS2 package much more easier since for this repository, it needed to run more or less 6 package ( included rosbag for logging purpose )</p>
-<p>Stack script for this purpose located in ~/script/ with file name start_pb_stack.sh. to start it, because it's a normal script, no need to build it, just chmod +x "path of the file" to make it executable.
-example :</p>
-<pre><code class="language-bash">chmod +x ~/script/start_pb_stack.sh
+<h1 id="1-run-the-stack-script">1. Run the Stack Script</h1>
+<p>The stack script is a <code>.sh</code> file used to simplify launching multiple ROS2 packages simultaneously. In this system, it runs approximately <strong>6 packages</strong> (including <code>rosbag</code> for logging).</p>
+<p><strong>Location:</strong></p>
+<pre><code>~/script/start_pb_stack.sh
+</code></pre>
+<h3 id="steps">Steps:</h3>
+<pre><code>chmod +x ~/script/start_pb_stack.sh
 ~/script/start_pb_stack.sh
 </code></pre>
-<p>note :
-wait until all the terminal ros2 package windows to finish starting and the stack script done running, don't forget to check mission planner for bad vision warning !</p>
-<h4 id="2-starting-yolo-package">2. starting yolo package</h4>
-<p>the yolo ros2 executable for object detection are located in ~/yolo_ws/src/yolov11_ros/yolov11_ros/yolo_node.py , after colcon build it, to start the executable here the command for it :</p>
-<pre><code class="language-bash">ros2 launch yolob11_ros yolo_v11_ros_launch.py
+<h3 id="notes">Notes:</h3>
+<ul>
+<li>Wait until all ROS2 terminal windows finish launching</li>
+<li>Ensure the script has fully completed execution</li>
+<li>
+<p>Check Mission Planner / GCS:</p>
+</li>
+<li>
+<p>Make sure there is no "Bad Vision" warning</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-start-yolo-detection-package">2. Start YOLO Detection Package</h2>
+<p>The YOLO ROS2 node is responsible for object detection and coordinate publishing.</p>
+<p><strong>Source location:</strong></p>
+<pre><code>~/yolo_ws/src/yolov11_ros/yolov11_ros/yolo_node.py
 </code></pre>
-<p>wait until there's nomore new line being shown in the terminal or the coordinate of the detected object to be shown in terminal ( if the object are possible to be detected in ground ). if yolo still can't detected the desirable object in ground, this yolo package still can detect and send the desirable object coordinat when the vehicle or drone move / fly.
-note : becareful when it's only posible to detect the object after the vehicle starting / moving, since yolo keep sending coordinate of it's desirable detected object</p>
-<h4 id="3-starting-control-manager-package">3. starting control manager package</h4>
-<p>Control manager package are there to command the vehicle or drone to move depend's on what being commanded ( for this case, it's a circular motion after take off and object detected with it's coordinate ), this package is usually located in the same workspace as the main palmbee_ws ( in ~/palmbee_ws/src/PalmBee/pb_control/src/cm_setpoint.cpp ). to start this package, use this command :</p>
-<pre><code class="language-bash">ros2 launch pb_control  cm_setpoint.launch.py
+<h3 id="build-the-workspace">Build the workspace:</h3>
+<pre><code>cd ~/yolo_ws
+colcon build
+source install/setup.bash
 </code></pre>
-<p>note : there's one more executable from pb_control that can be used if needed 2 different kind of executable.</p>
-<p>after starting , wait until in the terminal where this package startet to show "waiting for arm". to armed the vehicle, use mission planner or GCS to do it. after the drone being armed by GCS, it will start flying automaticly according to it's mission</p>
-<p>For more detailed instructions and documentation, please refer to the <a href="https://github.com/ep51lon/PalmBee">wiki</a>.</p>
+<h3 id="run-the-node">Run the node:</h3>
+<pre><code>ros2 launch yolob11_ros yolo_v11_ros_launch.py
+</code></pre>
+<h3 id="notes_1">Notes:</h3>
+<ul>
+<li>
+<p>Wait until:</p>
+</li>
+<li>
+<p>No new logs appear in terminal OR</p>
+</li>
+<li>Detected object coordinates start appearing</li>
+<li>
+<p>If objects are not detected while stationary:</p>
+</li>
+<li>
+<p>Detection may still work during drone movement</p>
+</li>
+<li>
+<p>Be cautious:</p>
+</li>
+<li>
+<p>YOLO continuously publishes detected object coordinates</p>
+</li>
+<li>This may affect control behavior if detection is unstable</li>
+</ul>
+<hr />
+<h2 id="3-start-control-manager-package">3. Start Control Manager Package</h2>
+<p>The control manager handles vehicle movement logic based on commands and detection input.</p>
+<p><strong>Source location:</strong></p>
+<pre><code>~/palmbee_ws/src/PalmBee/pb_control/src/cm_setpoint.cpp
+</code></pre>
+<h3 id="build-the-workspace_1">Build the workspace:</h3>
+<pre><code>cd ~/palmbee_ws
+colcon build
+source install/setup.bash
+</code></pre>
+<h3 id="run-the-control-node">Run the control node:</h3>
+<pre><code>ros2 launch pb_control cm_setpoint.launch.py
+</code></pre>
+<h3 id="notes_2">Notes:</h3>
+<ul>
+<li>Alternative executables are available in <code>pb_control</code> if needed</li>
+<li>
+<p>After launching:</p>
+</li>
+<li>
+<p>Wait until terminal shows:</p>
+<p><code>waiting for arm</code>
+* Arm the vehicle using Mission Planner / GCS</p>
+</li>
+</ul>
+<h3 id="behavior-after-arming">Behavior After Arming:</h3>
+<ul>
+<li>
+<p>The drone will:</p>
+</li>
+<li>
+<p>Take off automatically</p>
+</li>
+<li>Execute predefined motion (e.g., circular trajectory)</li>
+<li>React to detected object coordinates</li>
+</ul>
+<hr />
+<h2 id="additional-reference">Additional Reference</h2>
+<p>For more detailed documentation, please reference ROS2 Humble documentation:
+<a href="https://docs.ros.org/en/humble/index.html">Ros2 Humble Documentation</a>
+or check on Mission Planner Documentation ( GCS that being used )
+<a href="https://ardupilot.org/planner/docs/mission-planner-overview.html">Mission Planner GCS Wiki</a></p>
+<hr />
+<h2 id="summary-flow">Summary Flow</h2>
+<ol>
+<li>Run stack script</li>
+<li>Start YOLO detection</li>
+<li>Start control manager</li>
+<li>Arm via GCS</li>
+<li>Drone operates autonomously</li>
+</ol>
 
 
 
