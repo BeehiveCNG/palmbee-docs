@@ -611,6 +611,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="6. Install dependencies for palmbee_ws:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-palmbee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a. palmbee
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-yolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b. yolo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -621,6 +649,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="7. Build the package:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-palmbee_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a. palmbee
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-yolo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b. yolo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -659,6 +715,34 @@
     
   
     Hardware Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yolo_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Yolo Setup
   
 
     
@@ -1031,6 +1115,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="6. Install dependencies for palmbee_ws:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-palmbee" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a. palmbee
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-yolo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b. yolo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1041,6 +1153,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="7. Build the package:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-palmbee_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        a. palmbee
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-yolo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        b. yolo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1100,14 +1240,26 @@ unzip yolo_ws.zip -d yolo_ws
 </code></pre>
 <hr />
 <h4 id="6-install-dependencies-for-palmbee_ws">6. Install dependencies for palmbee_ws:</h4>
+<h6 id="a-palmbee">a. palmbee</h6>
 <pre><code class="language-bash">cd palmbee_ws
+rosdep install --from-paths src --ignore-src -r -y
+</code></pre>
+<h6 id="b-yolo">b. yolo</h6>
+<p>before rosdep install / colcon build, please set yolo first
+here's the refrence to set it up : <a href="/yolo_setup.md">Yolo Setup</a></p>
+<pre><code class="language-bash">cd yolo_ws
 rosdep install --from-paths src --ignore-src -r -y
 </code></pre>
 <hr />
 <h4 id="7-build-the-package">7. Build the package:</h4>
+<h6 id="a-palmbee_1">a. palmbee</h6>
 <pre><code class="language-bash">colcon build
 or build specific package (for example, pb_perception) using
 colcon build --packages-select pb_perception
+</code></pre>
+<h6 id="b-yolo_1">b. yolo</h6>
+<p>make sure the terminal / bash path are located in yolo_ws</p>
+<pre><code class="language-bash">colcon build
 </code></pre>
 <p>Note : there's will be some package that are missing and the ros2 build will encounter error if it's a clean install, please read the error message to know what package are missing and install it ( example : python3. . . or some other package like that)</p>
 <hr />
