@@ -4,6 +4,7 @@
 #### 1. run or start stack script
 
 Stack script are a .sh type file that are there so it's make the starting or running the ROS2 package much more easier since for this repository, it needed to run more or less 6 package ( included rosbag for logging purpose )
+
 Stack script for this purpose located in ~/script/ with file name start_pb_stack.sh. to start it, because it's a normal script, no need to build it, just chmod +x "path of the file" to make it executable.
 example :
 
