@@ -592,10 +592,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-install-dependencies" class="md-nav__link">
+  <a href="#5-extract-the-3-zip-file-its-already-in-workspace-form" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Install dependencies:
+        5. Extract the 3 Zip File ( it's already in workspace form )
       
     </span>
   </a>
@@ -603,10 +603,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-build-the-package" class="md-nav__link">
+  <a href="#6-install-dependencies-for-palmbee_ws" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Build the package:
+        6. Install dependencies for palmbee_ws:
       
     </span>
   </a>
@@ -614,10 +614,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-source-the-setup-file" class="md-nav__link">
+  <a href="#7-build-the-package" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Source the setup file:
+        7. Build the package:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-source-the-setup-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Source the setup file:
       
     </span>
   </a>
@@ -1001,10 +1012,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#5-install-dependencies" class="md-nav__link">
+  <a href="#5-extract-the-3-zip-file-its-already-in-workspace-form" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Install dependencies:
+        5. Extract the 3 Zip File ( it's already in workspace form )
       
     </span>
   </a>
@@ -1012,10 +1023,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#6-build-the-package" class="md-nav__link">
+  <a href="#6-install-dependencies-for-palmbee_ws" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6. Build the package:
+        6. Install dependencies for palmbee_ws:
       
     </span>
   </a>
@@ -1023,10 +1034,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#7-source-the-setup-file" class="md-nav__link">
+  <a href="#7-build-the-package" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7. Source the setup file:
+        7. Build the package:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-source-the-setup-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Source the setup file:
       
     </span>
   </a>
@@ -1055,43 +1077,45 @@
 <p>To install the PalmBee package, follow these steps:</p>
 <hr />
 <h4 id="1-install-and-setup-ros2-humble-first">1. Install and setup ROS2 Humble First:</h4>
-<pre><code class="language-bash">using this documentation
-https://docs.ros.org/en/humble/Installation.html
-</code></pre>
+<p>using this Ros2 Humble documentation
+<a href="https://docs.ros.org/en/humble/Installation.html">Ros2 Humble Documentation</a></p>
 <hr />
 <h4 id="2-install-and-setup-this-specific-zed-sdk">2. Install and setup this specific Zed SDK:</h4>
-<pre><code class="language-bash">[git clone https://github.com/ep51lon/PalmBee.git](https://www.stereolabs.com/en-id/developers/release/4.2
-note : this repository is based on wrapper 4.2.5 and tested on ZED SDK for JetPack 6.1 and 6.2 (L4T 36.4))
-</code></pre>
+<p><a href="https://www.stereolabs.com/en-id/developers/release/4.2">Zed2i SDK 4.2</a>
+note : this repository is based on wrapper 4.2.5 and tested on ZED SDK for JetPack 6.1 and 6.2 (L4T 36.4)</p>
 <hr />
 <h4 id="3-create-the-workspace-directory">3. Create the workspace directory:</h4>
-<pre><code class="language-bash">mkdir -p palmbee_ws/src
-cd palmbee_ws/src
+<pre><code class="language-bash">mkdir -p palmbee_project
+cd palmbee_project
 </code></pre>
 <hr />
 <h4 id="4-clone-the-repository">4. Clone the repository:</h4>
-<pre><code class="language-bash">git clone https://github.com/ep51lon/PalmBee.git
+<pre><code class="language-bash">git clone https://github.com/BeehiveCNG/PalmBee
 </code></pre>
 <hr />
-<h4 id="5-install-dependencies">5. Install dependencies:</h4>
-<pre><code class="language-bash">git clone https://github.com/ep51lon/PalmBee.git
-</code></pre>
-<p>or build specific package (for example, pb_perception) using</p>
-<pre><code class="language-bash">colcon build --packages-select pb_perception
+<h4 id="5-extract-the-3-zip-file-its-already-in-workspace-form">5. Extract the 3 Zip File ( it's already in workspace form )</h4>
+<pre><code class="language-bash">unzip palmbee_ws.zip -d palmbee_ws
+unzip script.zip -d script
+unzip yolo_ws.zip -d yolo_ws
 </code></pre>
 <hr />
-<h4 id="6-build-the-package">6. Build the package:</h4>
+<h4 id="6-install-dependencies-for-palmbee_ws">6. Install dependencies for palmbee_ws:</h4>
+<pre><code class="language-bash">cd palmbee_ws
+rosdep install --from-paths src --ignore-src -r -y
+</code></pre>
+<hr />
+<h4 id="7-build-the-package">7. Build the package:</h4>
 <pre><code class="language-bash">colcon build
 or build specific package (for example, pb_perception) using
 colcon build --packages-select pb_perception
 </code></pre>
+<p>Note : there's will be some package that are missing and the ros2 build will encounter error if it's a clean install, please read the error message to know what package are missing and install it ( example : python3. . . or some other package like that)</p>
 <hr />
-<h4 id="7-source-the-setup-file">7. Source the setup file:</h4>
+<h4 id="8-source-the-setup-file">8. Source the setup file:</h4>
 <pre><code class="language-bash">source install/setup.bash
 </code></pre>
-<p>or set it up on ~/.bashrc using the source command</p>
-<pre><code class="language-bash">note : for yolo_ws / u can also build it on different workspace and build it too ( but u must install / set yolo first and any package that yolo needed )
-</code></pre>
+<p>or set it up on ~/.bashrc using the source command
+note : for yolo_ws / u can also build it on different workspace and build it too ( but u must install / set yolo first and any package that yolo needed )</p>
 
 
 
