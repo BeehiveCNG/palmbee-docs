@@ -60,7 +60,7 @@ rosdep install --from-paths src --ignore-src -r -y
 ###### b. yolo
 
 before rosdep install / colcon build, please set yolo first
-here's the refrence to set it up : [Yolo Setup](/yolo_setup.md)
+here's the refrence to set it up : [Yolo Setup](../setup/yolo_setup.md)
 
 ```bash
 cd yolo_ws
