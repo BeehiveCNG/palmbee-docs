@@ -74,4 +74,5 @@ Note : there's will be some package that are missing and the ros2 build will enc
 source install/setup.bash
 ```
 or set it up on ~/.bashrc using the source command
+
 note : for yolo_ws / u can also build it on different workspace and build it too ( but u must install / set yolo first and any package that yolo needed )

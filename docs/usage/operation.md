@@ -1,42 +1,132 @@
 # STARTING
 **TO START AUTOMATION / OPERATION**
 
-#### 1. run or start stack script
+# 1. Run the Stack Script
 
-Stack script are a .sh type file that are there so it's make the starting or running the ROS2 package much more easier since for this repository, it needed to run more or less 6 package ( included rosbag for logging purpose )
+The stack script is a `.sh` file used to simplify launching multiple ROS2 packages simultaneously. In this system, it runs approximately **6 packages** (including `rosbag` for logging).
 
-Stack script for this purpose located in ~/script/ with file name start_pb_stack.sh. to start it, because it's a normal script, no need to build it, just chmod +x "path of the file" to make it executable.
-example :
+**Location:**
 
-```bash
+```
+~/script/start_pb_stack.sh
+```
+
+### Steps:
+
+```
 chmod +x ~/script/start_pb_stack.sh
 ~/script/start_pb_stack.sh
 ```
 
-note :
-wait until all the terminal ros2 package windows to finish starting and the stack script done running, don't forget to check mission planner for bad vision warning !
+### Notes:
 
-#### 2. starting yolo package
+* Wait until all ROS2 terminal windows finish launching
+* Ensure the script has fully completed execution
+* Check Mission Planner / GCS:
 
-the yolo ros2 executable for object detection are located in ~/yolo_ws/src/yolov11_ros/yolov11_ros/yolo_node.py , after colcon build it, to start the executable here the command for it :
+  * Make sure there is no "Bad Vision" warning
 
-```bash
+---
+
+## 2. Start YOLO Detection Package
+
+The YOLO ROS2 node is responsible for object detection and coordinate publishing.
+
+**Source location:**
+
+```
+~/yolo_ws/src/yolov11_ros/yolov11_ros/yolo_node.py
+```
+
+### Build the workspace:
+
+```
+cd ~/yolo_ws
+colcon build
+source install/setup.bash
+```
+
+### Run the node:
+
+```
 ros2 launch yolob11_ros yolo_v11_ros_launch.py
 ```
 
-wait until there's nomore new line being shown in the terminal or the coordinate of the detected object to be shown in terminal ( if the object are possible to be detected in ground ). if yolo still can't detected the desirable object in ground, this yolo package still can detect and send the desirable object coordinat when the vehicle or drone move / fly.
-note : becareful when it's only posible to detect the object after the vehicle starting / moving, since yolo keep sending coordinate of it's desirable detected object
+### Notes:
 
-#### 3. starting control manager package
+* Wait until:
 
-Control manager package are there to command the vehicle or drone to move depend's on what being commanded ( for this case, it's a circular motion after take off and object detected with it's coordinate ), this package is usually located in the same workspace as the main palmbee_ws ( in ~/palmbee_ws/src/PalmBee/pb_control/src/cm_setpoint.cpp ). to start this package, use this command :
+  * No new logs appear in terminal OR
+  * Detected object coordinates start appearing
+* If objects are not detected while stationary:
 
-```bash
-ros2 launch pb_control  cm_setpoint.launch.py
+  * Detection may still work during drone movement
+* Be cautious:
+
+  * YOLO continuously publishes detected object coordinates
+  * This may affect control behavior if detection is unstable
+
+---
+
+## 3. Start Control Manager Package
+
+The control manager handles vehicle movement logic based on commands and detection input.
+
+**Source location:**
+
+```
+~/palmbee_ws/src/PalmBee/pb_control/src/cm_setpoint.cpp
 ```
 
-note : there's one more executable from pb_control that can be used if needed 2 different kind of executable.
+### Build the workspace:
 
-after starting , wait until in the terminal where this package startet to show "waiting for arm". to armed the vehicle, use mission planner or GCS to do it. after the drone being armed by GCS, it will start flying automaticly according to it's mission
+```
+cd ~/palmbee_ws
+colcon build
+source install/setup.bash
+```
 
-For more detailed instructions and documentation, please refer to the [wiki](https://github.com/ep51lon/PalmBee).
+### Run the control node:
+
+```
+ros2 launch pb_control cm_setpoint.launch.py
+```
+
+### Notes:
+
+* Alternative executables are available in `pb_control` if needed
+* After launching:
+
+  * Wait until terminal shows:
+
+    ```
+    waiting for arm
+    ```
+* Arm the vehicle using Mission Planner / GCS
+
+### Behavior After Arming:
+
+* The drone will:
+
+  * Take off automatically
+  * Execute predefined motion (e.g., circular trajectory)
+  * React to detected object coordinates
+
+---
+
+## Additional Reference
+
+For more detailed documentation, please reference ROS2 Humble documentation:
+[Ros2 Humble Documentation](https://docs.ros.org/en/humble/index.html)
+or check on Mission Planner Documentation ( GCS that being used )
+[Mission Planner GCS Wiki](https://ardupilot.org/planner/docs/mission-planner-overview.html)
+
+---
+
+## Summary Flow
+
+1. Run stack script
+2. Start YOLO detection
+3. Start control manager
+4. Arm via GCS
+5. Drone operates autonomously
