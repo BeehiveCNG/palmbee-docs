@@ -1,119 +1,141 @@
-# Yolo installation
 
-Here are the script used to for setting up yolo
+# YOLO Setup (Jetson)
 
-before running it , make sure it's located in the same path as yolo_ws / inside of it
-and if it's being run as .sh script, make sure to chmod +x it's first so it became a executable
+This guide explains how to install YOLO on NVIDIA Jetson using the provided installation package.
+
+---
+
+## Prerequisites
+
+Before proceeding, ensure you have completed the main installation:
+
+👉 Follow:  
+https://github.com/BeehiveCNG/palmbee-docs/blob/main/docs/setup/installation.md
+
+---
+
+## Installation Steps
+
+### 1. Extract YOLO Installation Package
+
+Place the file:
+
+```
+yolo_installation.zip
+```
+
+Then extract it:
 
 ```bash
-#!/bin/bash
-
-echo "==============================="
-echo " YOLO + JETSON SETUP START"
-echo "==============================="
-
-==============================
-
-0. CHECK PYTHON
-
-==============================
-
-echo "[1/8] Checking Python version..."
-python3 --version
-
-==============================
-
-1. UPGRADE PIP
-
-==============================
-
-echo "[2/8] Upgrading pip..."
-python3 -m pip install --upgrade pip
-
-==============================
-
-2. REMOVE CONFLICT PACKAGES
-
-==============================
-
-echo "[3/8] Removing conflicting packages..."
-python3 -m pip uninstall -y opencv-python opencv-python-headless torch torchvision numpy
-
-==============================
-
-3. INSTALL NUMPY (ZED SAFE)
-
-==============================
-
-echo "[4/8] Installing compatible numpy..."
-python3 -m pip install numpy==1.26.4
-
-==============================
-
-4. INSTALL TORCH (JETSON GPU)
-
-==============================
-
-echo "[5/8] Installing Jetson PyTorch (GPU)..."
-python3 -m pip install
---index-url https://pypi.jetson-ai-lab.io/jp6/cu126
-torch==2.8.0 torchvision==0.23.0
-
-==============================
-
-5. INSTALL ULTRALYTICS (NO DEPS)
-
-==============================
-
-echo "[6/8] Installing Ultralytics..."
-python3 -m pip install ultralytics --no-deps
-
-==============================
-
-6. INSTALL OPTIONAL DEPENDENCY
-
-==============================
-
-echo "[7/8] Installing YOLO tracking dependency..."
-python3 -m pip install lap
-
-==============================
-
-7. VERIFY INSTALLATION
-
-==============================
-
-echo "[8/8] Verifying installation..."
-
-python3 <<EOF
-import torch
-from ultralytics import YOLO
-import cv2
-import numpy as np
-
-print("===== CHECK =====")
-print("Torch:", torch.version)
-print("CUDA Available:", torch.cuda.is_available())
-
-if torch.cuda.is_available():
-print("GPU:", torch.cuda.get_device_name(0))
-
-print("Numpy:", np.version)
-print("OpenCV:", cv2.version)
-
-test YOLO load
-
-model = YOLO("yolo11n.pt")
-print("YOLO loaded successfully")
-
-EOF
-
-echo "==============================="
-echo " INSTALLATION DONE"
-echo "==============================="
-
-echo "NOTE:"
-echo "- SciPy warning boleh diabaikan"
-echo "- Jangan install opencv-python lagi"
-echo "- Gunakan numpy 1.26.4 saja"
+unzip yolo_installation.zip
 ```
+
+---
+
+### 2. Navigate to Installation Folder
+
+```bash
+cd "Yolo Installation"
+```
+
+---
+
+### 3. Run Setup Script
+
+Make the script executable:
+
+```bash
+chmod +x setup_yolo_jetson.sh
+```
+
+Run the installation:
+
+```bash
+./setup_yolo_jetson.sh
+```
+
+---
+
+## Expected Output
+
+If the installation runs correctly, you should see output similar to:
+
+```bash
+===============================
+ YOLO + JETSON SETUP START
+===============================
+
+[1/8] Checking Python version...
+Python 3.10.12
+
+[2/8] Upgrading pip...
+Requirement already satisfied: pip in ...
+
+[3/8] Removing conflicting packages...
+WARNING: Skipping opencv-python as it is not installed.
+Successfully uninstalled torch-2.x.x
+Successfully uninstalled numpy-1.x.x
+
+[4/8] Installing compatible numpy (ZED safe)...
+Successfully installed numpy-1.26.4
+
+[5/8] Installing Jetson PyTorch (GPU support)...
+Downloading torch-2.8.0...
+Successfully installed torch-2.8.0 torchvision-0.23.0
+
+[6/8] Installing Ultralytics (without dependencies)...
+Requirement already satisfied: ultralytics ...
+
+[7/8] Installing YOLO tracking dependency (lap)...
+Successfully installed lap-0.5.12
+
+[8/8] Verifying installation...
+
+===== SYSTEM CHECK =====
+Torch Version: 2.8.0
+CUDA Available: True
+GPU: Orin
+NumPy Version: 1.26.4
+OpenCV Version: 4.5.4
+
+YOLO model loaded successfully
+
+===============================
+ INSTALLATION COMPLETE
+===============================
+```
+
+---
+
+## Notes
+
+- Some warnings during installation are **expected and safe to ignore**.
+
+Examples:
+
+```bash
+UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required
+ERROR: pip's dependency resolver does not currently take into account...
+WARNING: Skipping opencv-python as it is not installed.
+```
+
+---
+
+## Important Considerations
+
+- Do **NOT** install `opencv-python` via pip (can break Jetson setup)
+- Use **NumPy version 1.26.4** for compatibility with ZED SDK
+- SciPy-related warnings can be safely ignored
+
+---
+
+## Summary
+
+Steps performed:
+
+1. Extract YOLO installation package  
+2. Enter installation directory  
+3. Run setup script  
+4. Verify installation output  
+
+After completion, YOLO is ready for use on Jetson with GPU acceleration.
