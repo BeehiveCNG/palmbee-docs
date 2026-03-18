@@ -4,6 +4,9 @@
 This guide explains how to install YOLO on NVIDIA Jetson using the provided installation package.  
 The installation process is **fully script-driven**, ensuring reproducibility and minimal manual configuration.
 
+**Estimated time:** ~10–20 minutes  
+**Disk usage:** ~1–2 GB  
+
 ---
 
 ## Prerequisites
@@ -11,6 +14,16 @@ The installation process is **fully script-driven**, ensuring reproducibility an
 Before proceeding, ensure you have completed the main installation:
 
 👉 https://github.com/BeehiveCNG/palmbee-docs/blob/main/docs/setup/installation.md
+
+### System Requirement
+
+This setup is tested on:
+
+- **JetPack 6.x (L4T r36.x)**
+- CUDA 12.x
+- Jetson Orin series
+
+> Using JetPack 5.x or other versions may result in incompatibility with PyTorch and CUDA.
 
 ---
 
@@ -58,6 +71,27 @@ Run the installation:
 
 ---
 
+## Python Environment Note (Important)
+
+The installation uses:
+
+```bash
+python3 -m pip
+```
+
+which installs packages into the **system Python environment**.
+
+Ensure that ROS 2 uses the same Python environment (typically system Python on Jetson).  
+Otherwise, you may encounter:
+
+```bash
+ModuleNotFoundError: ultralytics
+```
+
+even though the installation was successful.
+
+---
+
 ## Dependency Handling (Managed by Script)
 
 The installation script ensures a consistent and compatible environment:
@@ -68,8 +102,9 @@ The installation script ensures a consistent and compatible environment:
 - **PyTorch (Jetson build)**  
   Installed with GPU (CUDA) support enabled for optimal performance.
 
-- **OpenCV**  
-  Uses the pre-installed Jetson system version instead of pip packages to maintain compatibility with hardware acceleration.
+- **OpenCV (system version)**  
+  OpenCV is already provided by Jetson via system libraries (apt).  
+  Installing `opencv-python` via pip may override this and break compatibility.
 
 > These dependencies are configured automatically by the script.  
 > Modifying them manually after installation may affect system stability or compatibility.
@@ -101,7 +136,13 @@ Key indicators of success:
 
 ## Known Warnings (Safe to Ignore)
 
-During installation, you may encounter warnings such as:
+These warnings are **EXPECTED and SAFE**:
+
+- pip dependency resolver warning  
+- SciPy requires numpy <1.25 warning  
+- ultralytics missing dependency warning (opencv)  
+
+Example:
 
 ```bash
 UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required
@@ -109,42 +150,41 @@ ERROR: pip's dependency resolver does not currently take into account...
 WARNING: Skipping opencv-python as it is not installed.
 ```
 
-These are expected and do not affect functionality:
-
-- **pip dependency conflict warning**  
-  Occurs due to Jetson-specific package combinations
-
-- **SciPy / NumPy warning**  
-  Triggered by version constraints, but does not impact YOLO usage
-
-- **Ultralytics auto-install messages**  
-  Part of internal dependency handling
+> Do **NOT** attempt to fix these unless you fully understand the dependency chain.
 
 ---
 
 ## Optional: YOLO Test
 
-After installation, you may optionally test YOLO inference using the provided model.
+You may optionally test YOLO inference after installation.
 
-> This step is optional and depends on your testing workflow.  
-> The model can be placed in any directory as long as the path is correctly specified.
+> This step is **only for verification**.  
+> The model file (e.g. `yolo11n.pt`) is **not required** if you plan to use your own model later.
 
 ---
 
 ## Common Pitfalls After Installation
 
-After a successful setup, certain changes to the environment may introduce issues:
+After a successful setup, certain changes may introduce issues:
 
-- **Upgrading NumPy manually**  
-  May break compatibility with ZED SDK
+- Upgrading NumPy manually  
+- Installing OpenCV via pip  
+- Reinstalling PyTorch from pip  
 
-- **Installing OpenCV via pip**  
-  Can override Jetson-optimized OpenCV and affect performance
+These actions may override the compatible environment created by the script.
 
-- **Reinstalling PyTorch from pip**  
-  May replace the Jetson-specific GPU-enabled build
+---
 
-> In general, it is recommended to keep the environment consistent with the script configuration unless specific changes are required and understood.
+## 🔧 Common Runtime Issues
+
+1. **Torch import error (libcudss.so missing)**  
+   → Caused by incorrect PyTorch build (not Jetson-compatible)
+
+2. **GPU not detected**  
+   → Wrong PyTorch build or CUDA mismatch
+
+3. **ROS node cannot find ultralytics**  
+   → Python environment mismatch between ROS and system Python
 
 ---
 
