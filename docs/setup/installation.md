@@ -50,8 +50,20 @@ unzip yolo_ws.zip -d yolo_ws
 
 #### 6. Install dependencies for palmbee_ws:
 
+###### a. palmbee
+
 ```bash
 cd palmbee_ws
+rosdep install --from-paths src --ignore-src -r -y
+```
+
+###### b. yolo
+
+before rosdep install / colcon build, please set yolo first
+here's the refrence to set it up : [Yolo Setup](/yolo_setup.md)
+
+```bash
+cd yolo_ws
 rosdep install --from-paths src --ignore-src -r -y
 ```
 
@@ -59,11 +71,22 @@ rosdep install --from-paths src --ignore-src -r -y
 
 #### 7. Build the package:
 
+###### a. palmbee
+
 ```bash
 colcon build
 or build specific package (for example, pb_perception) using
 colcon build --packages-select pb_perception
 ```
+
+###### b. yolo
+
+make sure the terminal / bash path are located in yolo_ws
+
+```bash
+colcon build
+```
+
 Note : there's will be some package that are missing and the ros2 build will encounter error if it's a clean install, please read the error message to know what package are missing and install it ( example : python3. . . or some other package like that)
 
 ---

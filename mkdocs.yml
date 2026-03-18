@@ -23,6 +23,7 @@ nav:
   - Setup:
       - Installation: setup/installation.md
       - Hardware Setup: setup/hardware.md
+      - Yolo Setup: setup/yolo_setup.md
 
   - Usage:
       - Quick Start: usage/quickstart.md
