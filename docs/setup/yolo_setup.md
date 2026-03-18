@@ -1,7 +1,8 @@
 
 # YOLO Setup (Jetson)
 
-This guide explains how to install YOLO on NVIDIA Jetson using the provided installation package.
+This guide explains how to install YOLO on NVIDIA Jetson using the provided installation package.  
+The installation process is **fully script-driven**, ensuring reproducibility and minimal manual configuration.
 
 ---
 
@@ -9,8 +10,7 @@ This guide explains how to install YOLO on NVIDIA Jetson using the provided inst
 
 Before proceeding, ensure you have completed the main installation:
 
-👉 Follow:  
-https://github.com/BeehiveCNG/palmbee-docs/blob/main/docs/setup/installation.md
+👉 https://github.com/BeehiveCNG/palmbee-docs/blob/main/docs/setup/installation.md
 
 ---
 
@@ -54,43 +54,33 @@ Run the installation:
 ./setup_yolo_jetson.sh
 ```
 
+> The script will automatically handle all dependencies, environment setup, and compatibility adjustments.
+
 ---
 
-## Expected Output
+## Dependency Handling (Managed by Script)
 
-If the installation runs correctly, you should see output similar to:
+The installation script ensures a consistent and compatible environment:
+
+- **NumPy (1.26.4)**  
+  Selected for compatibility with ZED SDK and Jetson ecosystem.
+
+- **PyTorch (Jetson build)**  
+  Installed with GPU (CUDA) support enabled for optimal performance.
+
+- **OpenCV**  
+  Uses the pre-installed Jetson system version instead of pip packages to maintain compatibility with hardware acceleration.
+
+> These dependencies are configured automatically by the script.  
+> Modifying them manually after installation may affect system stability or compatibility.
+
+---
+
+## Expected Output / Verification
+
+If the installation is successful, you should see output similar to:
 
 ```bash
-===============================
- YOLO + JETSON SETUP START
-===============================
-
-[1/8] Checking Python version...
-Python 3.10.12
-
-[2/8] Upgrading pip...
-Requirement already satisfied: pip in ...
-
-[3/8] Removing conflicting packages...
-WARNING: Skipping opencv-python as it is not installed.
-Successfully uninstalled torch-2.x.x
-Successfully uninstalled numpy-1.x.x
-
-[4/8] Installing compatible numpy (ZED safe)...
-Successfully installed numpy-1.26.4
-
-[5/8] Installing Jetson PyTorch (GPU support)...
-Downloading torch-2.8.0...
-Successfully installed torch-2.8.0 torchvision-0.23.0
-
-[6/8] Installing Ultralytics (without dependencies)...
-Requirement already satisfied: ultralytics ...
-
-[7/8] Installing YOLO tracking dependency (lap)...
-Successfully installed lap-0.5.12
-
-[8/8] Verifying installation...
-
 ===== SYSTEM CHECK =====
 Torch Version: 2.8.0
 CUDA Available: True
@@ -99,19 +89,19 @@ NumPy Version: 1.26.4
 OpenCV Version: 4.5.4
 
 YOLO model loaded successfully
-
-===============================
- INSTALLATION COMPLETE
-===============================
 ```
+
+Key indicators of success:
+
+- `CUDA Available: True` → GPU acceleration is active  
+- `GPU: Orin` → Jetson GPU detected correctly  
+- YOLO model loads without error  
 
 ---
 
-## Notes
+## Known Warnings (Safe to Ignore)
 
-- Some warnings during installation are **expected and safe to ignore**.
-
-Examples:
+During installation, you may encounter warnings such as:
 
 ```bash
 UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required
@@ -119,23 +109,58 @@ ERROR: pip's dependency resolver does not currently take into account...
 WARNING: Skipping opencv-python as it is not installed.
 ```
 
+These are expected and do not affect functionality:
+
+- **pip dependency conflict warning**  
+  Occurs due to Jetson-specific package combinations
+
+- **SciPy / NumPy warning**  
+  Triggered by version constraints, but does not impact YOLO usage
+
+- **Ultralytics auto-install messages**  
+  Part of internal dependency handling
+
 ---
 
-## Important Considerations
+## Optional: YOLO Test
 
-- Do **NOT** install `opencv-python` via pip (can break Jetson setup)
-- Use **NumPy version 1.26.4** for compatibility with ZED SDK
-- SciPy-related warnings can be safely ignored
+After installation, you may optionally test YOLO inference using the provided model.
+
+> This step is optional and depends on your testing workflow.  
+> The model can be placed in any directory as long as the path is correctly specified.
+
+---
+
+## Common Pitfalls After Installation
+
+After a successful setup, certain changes to the environment may introduce issues:
+
+- **Upgrading NumPy manually**  
+  May break compatibility with ZED SDK
+
+- **Installing OpenCV via pip**  
+  Can override Jetson-optimized OpenCV and affect performance
+
+- **Reinstalling PyTorch from pip**  
+  May replace the Jetson-specific GPU-enabled build
+
+> In general, it is recommended to keep the environment consistent with the script configuration unless specific changes are required and understood.
 
 ---
 
 ## Summary
 
-Steps performed:
+The installation process is designed to be:
 
-1. Extract YOLO installation package  
-2. Enter installation directory  
+- Fully automated (script-driven)  
+- Reproducible across Jetson devices  
+- Compatible with ZED SDK and GPU acceleration  
+
+Steps:
+
+1. Extract package  
+2. Enter directory  
 3. Run setup script  
-4. Verify installation output  
+4. Verify output  
 
-After completion, YOLO is ready for use on Jetson with GPU acceleration.
+After completion, YOLO is ready for use with GPU acceleration on Jetson.
