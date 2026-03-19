@@ -32,3 +32,5 @@ We welcome contributions to the PalmBee package. Please fork the repository and 
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Note for future maintenance 
+this webpage used git and mkdocs for deployment, please refer to [MkDocs Documentation](https://www.mkdocs.org/) for instruction.
