@@ -26,6 +26,8 @@ It leverages:
 - [Wiring Diagram](system/wiring.md)
 - [Installation](setup/installation.md)
 
+## Main Repository
+- [PalmBee Main Repository](https://github.com/BeehiveCNG/PalmBee)
 
 ## Contributing
 
